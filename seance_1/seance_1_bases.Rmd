@@ -1,0 +1,242 @@
+---
+title: "Module 3 - Bases de R - Séance 1"
+author: "Hugo Varet, Frédéric Guyon, Olivier Kirsh et Jacques van Helden"
+date: '`r Sys.Date()`'
+output:
+  ioslides_presentation:
+    slide_level: 2
+    self_contained: no
+    colortheme: dolphin
+    fig_caption: yes
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    highlight: tango
+    smaller: yes
+    toc: yes
+    widescreen: yes
+  slidy_presentation:
+    smart: no
+    slide_level: 2
+    self_contained: yes
+    fig_caption: yes
+    fig_height: 6
+    fig_width: 7
+    highlight: tango
+    incremental: no
+    keep_md: yes
+    smaller: yes
+    theme: cerulean
+    toc: yes
+    widescreen: yes
+  html_document:
+    self_contained: no
+    fig_caption: yes
+    highlight: zenburn
+    theme: cerulean
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    fig_caption: yes
+    highlight: zenburn
+    toc: yes
+    toc_depth: 3
+  beamer_presentation:
+    colortheme: dolphin
+    fig_caption: yes
+    fig_height: 6
+    fig_width: 7
+    fonttheme: structurebold
+    highlight: tango
+    incremental: no
+    keep_tex: no
+    slide_level: 2
+    theme: Montpellier
+    toc: yes
+font-import: http://fonts.googleapis.com/css?family=Risque
+subtitle: DUBii 2019
+font-family: Garamond
+transition: linear
+---
+
+```{r include=FALSE, echo=FALSE, eval=TRUE}
+library(knitr)
+library(kableExtra)
+# library(formattable)
+
+options(width = 300)
+# options(encoding = 'UTF-8')
+knitr::opts_chunk$set(
+  fig.width = 7, fig.height = 5, 
+  fig.path = 'figures/07_tests_multiples',
+  fig.align = "center", 
+  size = "tiny", 
+  echo = TRUE, eval = TRUE, 
+  warning = FALSE, message = FALSE, 
+  results = FALSE, comment = "")
+
+options(scipen = 12) ## Max number of digits for non-scientific notation
+# knitr::asis_output("\\footnotesize")
+
+```
+## Les types de données élémentaires
+
+- les nombres (réels par défaut): `numeric`, `double`
+```{r}
+x=3.5
+class(x)
+is.double(x)
+is.numeric(x)
+```
+- les nombres entiers: `integer`
+```{r}
+x=3.5
+x=as.integer(x)
+is.integer(x)
+```
+- les caractères: `character`
+```{r}
+x="a"
+x="toto"
+```
+## Les types de données
+
+- les booléens: `boolean`
+```{r}
+x=FALSE
+x=TRUE
+as.integer(x)
+```
+- les facteurs: `factor`
+
+très fréquent en R: on verra plus tard
+
+## Les types de données: les vecteurs
+
+- tout est vecteur
+- vecteur: ensemble de valeurs du même type et indexées
+```{r}
+x=c(1,3,4,7)
+x[1]
+x[4]
+length(x)
+```
+- listes:  ensemble de valeurs de types différents et indexées
+```{r}
+x=list(names=c("toto","titi","tutu"),values=c(1,2,4))
+print(x)
+x[[2]]
+x$values
+```
+
+## Les types de données: les tableaux de données
+
+- type de données typique de l'analyse de données
+- data.frame: tableaux dont les colonnes sont de même types
+```{r}
+A=data.frame(names=c("toto","titi","tutu"),values=c(1,2,4))
+print(A)
+```
+
+## Manipulation des vecteurs
+```{r}
+x=rnorm(26)
+```
+- indiçage des vecteurs: `[]`
+```{r}
+x[3]
+```
+- vecteur d'indices  
+```{r}
+x[c(3,5)]
+x[1:6]
+x[seq(1,100,by=2)]
+```
+- vecteur de booléens=on prend ou pas sous condition
+```{r}
+x[x>=0]
+```
+## Manipulation des vecteurs
+- accés aux éléments de vecteur par le nom
+```{r}
+names(x)=letters
+x[c("a","t","z")]
+```
+- accés aux éléments éléments de liste par le nom
+```{r}
+x=list(names=letters,values=1:26)
+x$names
+x$letters
+```
+- data.frame = tableau à deux dimensions
+```{r}
+A=data.frame(names=c("toto","titi","tutu"),values=c(1,2,4))
+A[1,2]
+A[2,1]
+A[1:2,]
+A[A[,2]>=3,]
+```
+- data.frame = liste de vecteur colonne
+```{r}
+A$names
+A$values
+```
+- ou bien
+```{r}
+A[,"names"]
+A[,"values"]
+```
+
+## Les fonctions de base
+- `+`,`-`,`*`,`\`,`**`
+- `cos`,`sin`,`log`,`log10`,`exp`
+- les fonctions sont toutes vectorielles
+```{r}
+x=runif(10)
+x=x+1
+print(x)
+cos(x)
+y=seq(0, pi, len=10)
+x+y
+x*y
+```
+
+## Les fonctions en R
+
+```{r}
+ma_fonction=function(nom_arg1,nom_arg2) {
+# des calculs...
+return(valeur_retour)
+}
+```
+- `ma_fonction`: nom de la fonction (variable comme les autres)
+- `valeur1, valeur2`: arguments de la fonction
+- `valeur_retour`: la dernière ligne donne la valeur retournée par la fonction
+- exemple simple:
+```{r}
+add1=function(x) {
+   return(x+1)
+}
+
+add1(2)
+```
+
+## Les fonctions en R
+
+* les arguments ont un nom et peuvent avoir une valeur par défaut
+* à l'appel de la fonction:
+    + les arguments sont dans l'ordre
+    + dans le désordre si ils sont nommés
+    + peuvent être absents, si valeur par défaut
+* exemple simple:
+
+
+```{r}
+add2=function(x,y,z=0) {
+   x+2*y+3*z
+}
+add2(1,2)
+add2(y=1,x=2)
+add2(1,2,3)
+add2(y=1,x=2,3)
