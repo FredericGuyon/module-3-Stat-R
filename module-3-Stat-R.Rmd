@@ -1,5 +1,30 @@
 # [DUBii](https://du-bii.github.io/accueil/) - module 3 - Analyse statistique avec R
 
+## Accès aux séances
+
+| Séance | Contenu | Lien |
+|------|-----------------------------------|------------------------|
+| 1 | Premiers pas avec R | [seance_1](seance_1) |
+| 2 | Analyse statistique avec R |  |
+| 3 | Détection de gènes différentiellement exprimés | |
+| 4 | Clustering | |
+| 5 | Statistiques d'enrichissement | |
+| 6 | Classification supervisée (classement) | |
+
+
+## Table des matières
+
+- [Accès aux séances](#acces-aux-seances)
+- [Description](#description)
+- [Planning 2019](#planning)
+- [Prérequis](#prerequis)
+- [Synopsis](#synopsis)
+- [Contributeurs](#contributeurs)
+- [Accès aux supports de cours](#acces-aux-supports-de-cours)
+- [Installation locale](#installation-locale)
+- [Licence d'utilisation](#licence)
+
+
 ## Description
 
 Supports du cours "Statistiques avec R" du Diplôme Universitaire en Bioinformatique Intégrative ([DUBii](https://du-bii.github.io/accueil/)).
@@ -63,26 +88,24 @@ A la fin du module, les participants auront acquis les compétences suivantes.
     - assure la reproductibilité des analyses
 
 
-## Table des matières
-
-### Planning DU-Bii 2019
+## Planning DU-Bii 2019
 
 <https://tinyurl.com/dubii19-planning>
 
 
-### Prérequis
+## Prérequis
 
 Avant d'entamer ce module, les participants sont censés avoir suivi le premier module d'introduction à R sur Data Camp.
+
+## Synopsis
 
 ### [Séance 1 : Introduction à R](seance_1/README.md)
 
 *Intervenants: Hugo Varet et Frédéric Guyon*
 
-- Récupérer et adapter le TP de Roscoff
-- Identifier des cas d'études intéressants
+- Diapos et tutoriels: [seance_1](seance_1)
 
-
-Concepts:
+**Concepts:**
 - Premiers pas avec R
 - Statistiques descriptives
     - estimateurs de tendance centrale (moyenne, médiane)
@@ -90,7 +113,7 @@ Concepts:
 - Distributions théoriques de probabilité (discrètes et continues, grands principes, sachant que certaines seront approfondies dans d'autres séances)
 - Quelques représentations graphiques (nuage de points, polynome des fréquences, histogramme)
 
-Travaux pratiqus:
+**Travaux pratiques:**
 
 - Manipulation de fonctions R
 - Manipulation de distributions théoriques avec R (une discrète et une continue)
@@ -103,15 +126,18 @@ Travaux pratiqus:
             - il ne s'agit pas d'un affichage de la distrib mais d'une fonction polynomiale ajustée sur les données -> dans certains cas on extrapole au-delà du domaine de définition des données
             - au mieux, une technique commerciale, au pire un outil de fraude scientifique
 
-- Lecture et écriture de tables (read.table, read.delim, write.table)
-- Fonctions graphiques
+
+**Compétences visées**
+- Familiarisation avec la syntaxe R
+- Lecture, manipulation et écriture de tables
+- Utilisation de quelques fonctions graphiques
     - plot
     - lines
     - hist
     - boîte à moustache
-- Exporter un plot dans un fichier pdf ou png
+    - Exporter un plot dans un fichier pdf ou png
     - attirer l'attention sur la différence: vectoriel versus bitmap (zoomer à fond sur les figures produites)
-    
+
 
 ### [Séance 2 : Analyse statistique avec R](seance_2/README.md)
 
@@ -196,7 +222,7 @@ Applications:
 
 - Messages
     - Différentes méthodes sont appropriées pour différents types de données
-    - Au-delà de la méthodes, des paramètres influencence des paramètres 
+    - Au-delà de la méthode, influence des paramètres 
 
     
 ### [Séance 5: Statistiques d'enrichissement](seance_5/README.md)
@@ -234,15 +260,16 @@ Applications:
 
 ### Responsables
 
-1. Anne Badel, Université Paris-Diderot
+1. Anne Badel, Université Paris Diderot
 2. [Jacques van Helden](https://orcid.org/0000-0002-8799-8584), Institut Français de Bioinformatique, Aix-Marseille Université
 
 ### Autres intervenants
 
 3. Hugo Varet, Institut Pasteur
-4. Claire Vandiedonck, Université Paris-Diderot
-4. Leslie Regad, Université Paris-Diderot
-6. Frédéric Guyon, Université Paris-Diderot
+4. Claire Vandiedonck, Université Paris Diderot
+4. Leslie Regad, Université Paris Diderot
+6. Frédéric Guyon, Université Paris Diderot
+7. Magali Berland, INRA
 
 ### Calendrier 2019
 
@@ -253,27 +280,41 @@ Calendrier du DUBii : <https://goo.gl/MVEA4q>
 - Web: <https://du-bii.github.io/module-3-Stat-R/>
 - Github (sources): <https://github.com/DU-Bii/module-3-Stat-R/>
 
-## Installation
+## Un peu de bibliographie
 
-### Contributeurs du cours (membres de l'équipe pédagogique)
+![](img/analyseDeDonneesAvecR.png){:width="100px"} "Analyse de données avec R", Husson, F., S. Lê et Pagès J. (2009) Analyse de données avec R. Presses Universitaires.
+
+![](img/statAvecR.png){:width="100px"} "Statistiques avec R", 3ème édition augmentée en couleurs, Cornillon P.A., Guyader A., Husson F., Jégou N., Josse J., Kloareg M., Matzner-Løber E., Rouvière L. (2012) Presses Universitaires de Rennes.
+
+![](img/RforDataScience.png){:width="100px"} "R for Data Science", Hadley Wickham & Garrett Grolemund, O’Reilly [lien](https://r4ds.had.co.nz/index.html)
+
+![](img/advancedR.png){:width="100px"} "Advanced R", Hadley Wickham, Chapman & Hall/CRC The R Series [lien](http://adv-r.had.co.nz/)
+
+![](img/appliedPredictiveModel.png){:width="100px"} "Applied Predictive Modeling", Max Kuhn & Kjell Johnson, Springer
+
+## Installation locale
+
+Ces supports de cours peuvent être installés sur votre propre ordinateur en faisant un clone du dépôt git. 
+
+### Contributeurs (membres de l'équipe)
 
 ```sh
 git clone git@github.com:DU-Bii/module-3-Stat-R.git
 ```
 
-### Autres 
+### Non-membres de l'équipe
 
 ```sh
 git clone https://github.com/DU-Bii/module-3-Stat-R.git
 ```
 
 
-## License
+## Licence
 
 ![](img/CC-BY-SA.png)
 
+Ce contenu est mis à disposition selon les termes de la licence [Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/deed.fr) (CC BY-SA 4.0). Consultez le fichier [LICENSE](LICENSE.txt) pour plus de détails.
+
 
 This content is released under the [Creative Commons Attribution-ShareAlike 4.0 ](https://creativecommons.org/licenses/by-sa/4.0/deed.en) (CC BY-SA 4.0) license. See the bundled [LICENSE](LICENSE.txt) file for details.
-
-Ce contenu est mis à disposition selon les termes de la licence [Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/deed.fr) (CC BY-SA 4.0). Consultez le fichier [LICENSE](LICENSE.txt) pour plus de détails.
 
